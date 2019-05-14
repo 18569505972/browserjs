@@ -13,42 +13,42 @@ let _mime = (option, value) => {
 let getBrowserInfo = (u) => {
     let ua = u.toLocaleLowerCase();
     let browserType = null;
-    if (ua.match(/msie/) != null || ua.match(/trident/) != null) {
+    if (ua.match(/msie/) || ua.match(/trident/)) {
         browserType = "IE";
-    } else if (ua.match(/firefox/) != null) {
+    } else if (ua.match(/firefox/)) {
         browserType = "火狐";
-    } else if (ua.match(/alipay/) != null) {
+    } else if (ua.match(/alipay/)) {
         browserType = "支付宝";
-    } else if (ua.match(/weibo/) != null) {
+    } else if (ua.match(/weibo/)) {
         browserType = "微博";
-    } else if (ua.match(/ucbrowser/) != null) {
+    } else if (ua.match(/ucbrowser/)) {
         browserType = "UC";
-    } else if (ua.match(/opera/) != null || ua.match(/opr/) != null) {
+    } else if (ua.match(/opera/) || ua.match(/opr/)) {
         browserType = "欧朋";
-    } else if (ua.match(/baidu/) != null) {
+    } else if (ua.match(/baidu/)) {
         browserType = "百度";
-    } else if (ua.match(/metasr/) != null || ua.match(/sogo/) != null) {
+    } else if (ua.match(/metasr/) || ua.match(/sogo/)) {
         browserType = "搜狗";
-    } else if (ua.match(/liebao/) != null) {
+    } else if (ua.match(/liebao/)) {
         browserType = "猎豹";
-    } else if (ua.match(/2345/) != null) {
+    } else if (ua.match(/2345/)) {
         browserType = "2345";
-    } else if (ua.match(/tencenttraveler/) != null || ua.match(/qqbrowser/) != null) {
+    } else if (ua.match(/tencenttraveler/) || ua.match(/qqbrowser/)) {
         if (ua.match(/micromessenger/) == 'micromessenger') {
             browserType = "微信";
             return
         }
         browserType = "QQ";
-    } else if (ua.match(/maxthon/) != null) {
+    } else if (ua.match(/maxthon/)) {
         browserType = "遨游";
-    } else if (ua.match(/chrome/) != null) {
+    } else if (ua.match(/chrome/)) {
         let is360 = _mime("type", "application/vnd.chromium.remoting-viewer");
         if (is360) {
             browserType = '360';
         } else {
             browserType = '谷歌';
         }
-    } else if (!!ua.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/) && ua.match(/safari/) != null) {
+    } else if (!!ua.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/) && ua.match(/safari/)) {
         browserType = "Safari";
     } else {
         browserType = '未知'
